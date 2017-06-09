@@ -29,55 +29,11 @@
       "name": "gitweb",
       "creationTimestamp": null
     },
-    "spec": {},
+    "spec": {
+      "dockerImageRepository": "hillyu/docker-gitweb"
+    },
     "status": {
       "dockerImageRepository": ""
-    }
-  },
-  {
-    "kind": "BuildConfig",
-    "apiVersion": "v1",
-    "metadata": {
-      "name": "gitweb-build",
-      "creationTimestamp": null
-    },
-    "spec": {
-      "triggers": [{
-        "type": "Generic",
-        "generic": {
-          "secret": "gitweb-trigger-secret"
-        }
-      },
-      {
-        "type": "ImageChange",
-        "imageChange": {}
-      }],
-      "source": {
-        "type": "Git",
-        "git": {
-          "uri": "https://github.com/iconoeugen/docker-gitweb.git"
-        }
-      },
-      "strategy": {
-        "type": "Docker",
-        "dockerStrategy": {
-          "from": {
-            "kind": "ImageStreamTag",
-            "name": "centos:7"
-          }
-        }
-      },
-      "output": {
-        "to": {
-          "kind": "ImageStreamTag",
-          "name": "gitweb:latest"
-        }
-      },
-      "resources": {},
-      "postCommit": {}
-    },
-    "status": {
-      "lastVersion": 0
     }
   },
   {
